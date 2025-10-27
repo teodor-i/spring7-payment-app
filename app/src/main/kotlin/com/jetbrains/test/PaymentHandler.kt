@@ -1,4 +1,4 @@
-package com.jetbrains.test
+package com.jetbrains.demo
 
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.function.ServerRequest
@@ -32,26 +32,26 @@ class PaymentHandler(
         return ServerResponse.ok().body(mapOf("status" to status.name, "amount" to amount))
     }
 
-    fun headPay(@Suppress("UNUSED_PARAMETER") request: ServerRequest): ServerResponse {
+    fun headPay(_request: ServerRequest): ServerResponse {
         return ServerResponse.ok()
             .header("X-Endpoints", "GET /api/pay/{amount}, POST /api/pay, HEAD /api/pay, OPTIONS /api/pay")
             .build()
     }
 
-    fun optionsPay(@Suppress("UNUSED_PARAMETER") request: ServerRequest): ServerResponse {
+    fun optionsPay(_request: ServerRequest): ServerResponse {
         return ServerResponse.ok()
             .header("Allow", "GET,POST,HEAD,OPTIONS")
             .build()
     }
 
-    fun providers(@Suppress("UNUSED_PARAMETER") request: ServerRequest): ServerResponse {
+    fun providers(_request: ServerRequest): ServerResponse {
         // Show all active PaymentGateway beans (could be multiple)
         val beans = applicationContext.getBeansOfType(PaymentGateway::class.java)
         val providerClasses = beans.values.map { it.javaClass.name }.sorted()
         return ServerResponse.ok().body(mapOf("providers" to providerClasses))
     }
 
-    fun health(@Suppress("UNUSED_PARAMETER") request: ServerRequest): ServerResponse {
+    fun health(_request: ServerRequest): ServerResponse {
         val beans = applicationContext.getBeansOfType(PaymentGateway::class.java)
         return ServerResponse.ok().body(mapOf(
             "status" to "UP",

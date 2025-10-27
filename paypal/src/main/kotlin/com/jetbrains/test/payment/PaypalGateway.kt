@@ -1,7 +1,7 @@
-package com.jetbrains.test.payment
+package com.jetbrains.demo.payment
 
-import com.jetbrains.test.PaymentGateway
-import com.jetbrains.test.PaymentStatus
+import com.jetbrains.demo.PaymentGateway
+import com.jetbrains.demo.PaymentStatus
 import org.slf4j.LoggerFactory
 
 class PaypalGateway : PaymentGateway {

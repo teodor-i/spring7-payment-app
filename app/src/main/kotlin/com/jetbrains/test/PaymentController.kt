@@ -1,4 +1,4 @@
-package com.jetbrains.test
+package com.jetbrains.demo
 
 /**
  * Legacy controller kept for reference. Not used anymore because we switched to

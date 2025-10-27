@@ -1,4 +1,4 @@
-package com.jetbrains.test
+package com.jetbrains.demo
 
 import org.slf4j.LoggerFactory
 
